@@ -1,0 +1,47 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[dutch]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+
+\title{Examen}
+\author{Achim Vandierendonck}
+\date{2010 - 2011}
+
+\begin{document}
+\maketitle
+
+\section{Theorie}
+\begin{enumerate}
+	\item Leg aan de hand van de grafische interpretatie uit onder welke voorwaarden $R_{xy}(t) = C_{xy}(t)$.
+	\item Gegeven een blokdiagram bestaande uit 4 laddercellen met 2 parameters $k_1, k_2$. Toon aan dat dit een causaal FIR filter is van de 4e orde. Toon aan dat voor $|k_2|<1$ dit filter 2 nullen buiten de eenheidscirkel heeft (kwam erop neer dat het een oneven, symmetrisch filter was).
+	\item Geef 3 eigenschappen uit de cursus die aantonen waarom men makkelijk de ACF van een reël signaal met lengte N (macht van 2) kan berekenen via DFT (het feit dat N een macht van 2 is niet meerekenen).
+	\item Een vraag over H7 van ongeveer een half blad. Uiteindelijk kwam het erop neer dat je een verantwoorde keuze moest maken voor een vensterfunctie (Blok, Hamming, Hanning of Bingham), vensterlengte en aantal KTPE gegeven een hele resem eigenschappen waaraan moest voldaan zijn.
+\end{enumerate}
+\textit{Vraag 1 en 3 waren bijna weggevertjes. Bij vraag 2 was het wel makkelijk om het filter uit rekenen, het 2e was iets moeilijker te bewijzen, maar JP gaf hier heel wat tips rond zodat het wel duidelijk was dat je het niet expliciet moest beginnen uitrekenen.}
+
+\section{Oefeningen}
+Gegeven een periodiek signaal met frequentie $F$ en 7 hogere harmonischen (alle hogere harmonischen zijn 0). Dit signaal wordt verstoord door breedbandige ruis en werd gesampled aan $f_s=16F$. 
+\begin{enumerate}
+	\item Ontwerp een FIR filter dat het signaal ongemoeid laat (vorm blijft gelijk, vermogen blijft constant, constante groepsvertraging) en de ruis verminderd met $9dB$ (= factor 8). Geef $H(z), h(n), A(fTs), \tau(fTs)$. Teken ook het resulterende (polen en) nullendiagram.
+	\item Ontwerp een IIR filter dat het signaal ongemoeid laat (vorm blijft gelijk, vermogen blijft constant, constante groepsvertraging). Verder moet het filter aan de volgende eisen voldoen:
+	\begin{itemize}
+		\item 2 maal zoveel nullen bevatten als polen
+		\item In afwezigheid van de polen moeten de nullen de ruis zoveel mogelijk attenueren
+		\item Maximale modulus van de polen kleiner dan $0.9576$.
+		\item ...
+	\end{itemize}
+	Bereken en teken $H(z)$ en $A(fTs)^2$, doe ook een schatting van de SRV.
+\end{enumerate}
+
+\textit{In de eerste oefening was het de bedoeling dat je vertrok van wiskundige berekeningen (het impulsantwoord?), in de tweede oefening mocht je starten van het polen -en nullendiagram (dat vertelde JP toch tijdens het examen).
+De eerste oefening stond op 2 punten, de tweede op 5. De oefeningen hebben de reputatie zeer moeilijk te zijn maar vielen dit jaar nog mee (viel mee? Er is een reden dat hij zoveel tips gaf, niemand vond hoe je het moest oplossen. WEL moeilijk dus). JP gaf veel tips omtrent beide oefeningen, en uiteindelijk zei hij ook dat het voldoende was een van beide filters ontworpen te hebben omdat er tijd te kort was (ben dit wel niet zeker).}
+
+\end{document}

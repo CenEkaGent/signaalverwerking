@@ -1,0 +1,46 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[dutch]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+
+\title{Examen}
+\author{Achim Vandierendonck}
+\date{2013 - 2014}
+
+\begin{document}
+\maketitle
+
+\section{Theorie}
+\begin{enumerate}
+	\item We hebben een functie $R(t)$ (waarvoor $R(0) > R(t), \forall t \neq 0$) en hebben dus reden om aan te nemen dat het gaat over een autocorrelatiefunctie.
+	\begin{enumerate}
+		\item Hoe kunnen we dit zeker zijn?
+		\item Hoe zouden we er een echte autocorrelatiefunctie van kunnen maken. \textit{Denk aan Wiener filter.}
+	\end{enumerate}
+	\item Hoe kunnen we via de FFT snel de autocorrelatie berekenen? Enkel de procedure, geen formules omtrent de efficiëntie.
+	\item Hoe kunnen we de periode van een signaal afleiden uit het amplitudeceptstrum (zie vergelijking \ref{eq:ceptstrum})?
+\end{enumerate}
+
+\begin{equation}
+	|\mathcal{F}^{-1}\{\log{|\mathcal{F}\{f(t)\}|^2}\}|^2
+	\label{eq:ceptstrum}
+\end{equation}
+
+\section{Oefeningen}
+Gevraagd wordt om een IIR filter van 4e orde te ontwerpen waarbij de passband rond $fTs = 1/3$ ligt met een bandbreedte van $1/20\pi$. Het is mogelijk om dit te verwezenlijken door de som of het verschil te nemen van 2 tweede orde filters.
+\begin{enumerate}
+	\item Bespreek het principe omtrent hoe je dit zou kunnen verwezenlijken. \textit{Dit is analoog aan de oefeningenles omtrent subbandcodering, 2 filters laten snijden in het $3dB$ punt.}
+	\item Waarom levert enkel het verschil een goed resultaat?
+	\item Bereken de polen en nullen van dit filter
+	\item Met welk van de 4 types filters kan je dit het best vergelijken?
+\end{enumerate}
+
+\end{document}

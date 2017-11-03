@@ -1,0 +1,67 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[dutch]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+
+\title{Examen}
+\author{Achim Vandierendonck}
+\date{2011 - 2012}
+
+\begin{document}
+\maketitle
+
+\section{Theorie}
+\begin{enumerate}
+	\item Een systeem vormt een signaal $x(t)$ om tot $y(t)$, hoe kan je testen of dit systeem LTI is? Hoe kan je het impulsantwoord schatten? (2 punten)
+	\item De band van een banddoorlaatsignaal is gelegen in $10kHz<f<11kHz$. Dit signaal is gesampled aan $f_s = 2kHz$. Kan dit signaal perfect gereconstrueerd worden, en zo ja: hoe? (3 punten)
+	\item Je hebt een driehoeksignaal met basisfrequentie ongeveer F=2kHz. De fourierreekscoëfficiënten zijn hieronder gegeven. Je wenst aan de hand van de DFT na te gaan hoe correct dit signaal is. Daarvoor gebruik je enkel de 10 belangrijkste componenten. (5 punten)
+	\begin{itemize}
+		\item $X(2k) = 0$
+		\item $X(2k+1) = \frac{1}{\pi^2} * \frac{1}{(2k+1)^2}$
+	\end{itemize}
+	\begin{enumerate}
+		\item Wat is de laagste samplefrequentie waarvoor aan het Nyquist-criterium voldaan is, als $f_s$ een veelvoud moet zijn van $16kHz$.
+		\item Je wil een anti-aliasing filter maken voor een Cauer venster. Waaraan moet dit filter voldoen om een relatieve fout te beperken tot 1\%.
+		\item Van de basisvensterfuncties (gegeven: rechthoekig, hamming en hanning en de gegevens van tabel 7.1) kan hier enkel het Hanning venster gebruikt worden. Waarom?
+		\item Waaraan moet N voldoen om de afwijking ten gevolge van samplepositie klein te maken.
+		\item Welke andere fenomenen introduceren afwijkingen en hoe kan je deze tegenwerken, leg uit.
+	\end{enumerate}
+	\item Bij het RLS algoritme is de te minimaliseren kostfunctie gegeven door vergelijking \ref{eq:kostfunctie}. Je hebt een aantal experimenten met verschillende $\lambda$ gedaan. Hoe kan je op basis van de experimenten een goeie $\lambda$ selecteren. (3 punten)
+	\begin{equation}
+		E(n) = \sum_{i=-\infty}^n{\lambda^{n-i}[x(i)-x_p(i|n)]^2}
+		\label{eq:kostfunctie}
+	\end{equation}
+\end{enumerate}
+
+\section{Oefeningen}
+Ontwerp een FIR filter dat zo goed mogelijk een gegeven transferfunctie $H_{id} = jG_{id}$ benadert.
+$G_{id}$ is gegeven door:
+\begin{itemize}
+	\item $G_{id}(fTs)=\sin{2\pi fTs}$ voor $|fTs-1/8|<1/48$ en $|fTs-3/8|<1/48$
+	\item $G_{id}(fTs)=0$ in de intervallen (0, 1/16), (3/16, 5/16), (7/16, 1/2)
+\end{itemize}
+
+\noindent Voor de benaderde G geldt:
+\begin{itemize}
+	\item In de doorlaatband: een relatieve afwijking van +d in het centrum, en -d aan de rand.
+	\item In de doorlaatband is G monotoon dalend vanaf het centrum naar de rand
+	\item In de stopbanden: $G(fTs) < 0.05*\sin{2\pi fTs}$
+	\item In $fTs = 1/4$ geldt: $G(fTs) = -0.05$
+\end{itemize}
+\paragraph{Vragen}
+\begin{enumerate}
+	\item Teken het gabariet waaraan G moet voldoen. (voor $d=0.05$).
+	\item Geef de algemene vorm van de transferfunctie van $G(fTs)$, met zo weinig nog nader te bepalen parameters
+	\item Maak (zonder de exacte transferfunctie te berekenen) een schets van het polen-en-nullen-diagram.
+	\item Schrijf vergelijkingen op waarmee alle parameters in $G(fTs)$ bepaald kunnen worden (zonder op te lossen).
+\end{enumerate}
+
+\end{document}

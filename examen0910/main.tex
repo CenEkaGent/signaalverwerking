@@ -1,0 +1,63 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[dutch]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+
+\title{Examen}
+\author{Achim Vandierendonck}
+\date{2009 - 2010}
+
+\begin{document}
+\maketitle
+
+\section{Theorie}
+\begin{enumerate}
+    \item $R_{xx}(\tau)$ bereikt zijn maximum in $\tau = 0$. $x(t)$ (reëel) wordt gefilterd met een reëel filter $h(t)$ met fasespectrum $\theta(\tau) = -2\pi f\tau$, het bekomen signaal noemt men $y(t)$. Toon aan dat $R_{xy}$ een maximum heeft in $\tau$.
+    \item Vertrek vanuit de somformule van Poisson om een eenvoudig verband af te leiden tussen $G(fTs)$ en $H(fTs)$, gegeven $g(n) = h(3n)$.
+    \item Over hoofdstuk 5: 
+        \begin{enumerate}
+            \item Indien men de convolutiestelling van de DFT gebruikt, welke snelheidswinst kan men dan halen voor 2 signalen van lengte N ($N=2^k, k\in\mathcal{N}$) tegenover de rechstreekse berekening?
+            \item Bereken voor $N=128$.
+        \end{enumerate}
+    \item Over hoofdstuk 6:
+        \begin{enumerate}
+            \item Als men de DFT van een segment van lengte L berekent, wat is dan de reden waarom men gebruikt maakt van vensterfuncties? Wat is het nadeel aan het gebruik van deze vensterfuncties? 
+            \item Waarom wordt zero-padding toegepast bij permanente signalen?
+            \item Heeft zero-padding ook effect bij stochastische signalen?
+            \item Iets over de parametrische methode op basis van het AR-model. 
+            \item Wat is het fundamentele verschil tussen een de DFT-methode en de parametrische methode voor stochastische signalen?
+        \end{enumerate}
+\end{enumerate}
+\section{Oefeningen}
+Een signaal $x(t) > 0, \forall t$ (met $|X(f)| = 0, \forall f > F = \frac{\pi}{10} kHz$) wordt AM gemoduleerd: $y(t) = x(t)cos(2\pi F_ct)$. 
+Om het signaal opnieuw te verkrijgen maakt men gebruik van een gelijkrichter ( abs() ) gevolgd door een LDF.
+We wensen hierna deze gelijkrichter en LDF digitaal te simuleren.
+We ontwerpen voor $F_c= 2kHz$.
+\begin{enumerate}
+    \item Bereken het spectrum van het gelijkgericht signaal. Verwaarloos componenten minder dan $40dB$ dan de nuttige component.
+    \item Toon aan dat voor $f_s=14 kHz$ we een goeie digitale uitvoering kunnen ontwerpen. Wat zijn de problemen bij $15 kHz$ en $15.5 kHz$?
+    \item Maak een LDF die de andere signalen wegfiltert en enkel de nuttige component overhoudt. Hoeveel zijn er?
+    \item Plaats hiervoor 2 nullen per slechte component en maak de doorlaatband vlak door 2 polen te plaatsen zodat:
+        \begin{itemize}
+            \item De afstand tussen de polen $4\pi BT_s$ bedraagt.
+            \item $A_{LDF}(BTs) = A_{LDF}(0)$
+        \end{itemize}
+        Gebruik de smalbandbenadering.
+    \item Wat is de minste waarde voor $\frac{1}{|A_{LDF}|^2}$ en bereken hieruit de rimpel in de doorlaatband. Gebruik opnieuw de smallbandbenadering.
+\end{enumerate}
+
+\textit{Iedereen zat vast bij puntje 1 van de oefeningen omdat niemand het spectrum van $|cos(t)|$ wist. Professor Martens gaf wel tips, maar dit bleek niet voldoende. Het oefeningengedeelte is elk jaar wel enorm zwaar maar nu was het toch echt onhaalbaar. In tweede zit werd de Fourier reeks van $|cos(t)|$ gegeven.}
+
+\begin{equation}
+    |\cos{(x)}| = \frac{2}{\pi} + \frac{4}{\pi}\sum_{k=1}^{\infty}\frac{(-1)^k}{1-4k^2}\cos{(2kx)}
+\end{equation}
+
+\end{document}

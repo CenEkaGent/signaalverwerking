@@ -1,0 +1,70 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[dutch]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+
+\title{Examen}
+\author{Achim Vandierendonck}
+\date{2014 - 2015}
+
+\begin{document}
+\maketitle
+
+\section{Theorie}
+\paragraph{Vraag 1 (2 punten)}
+\begin{itemize}
+	\item Beschrijf hoe je de kruiscorrelatiefunctie en convolutie grafisch kan interpreteren en bepalen.
+	\item Schets deze twee functies voor twee signalen (signaal 1 is een driehoek met maximale amplitude 1 in T/2 met van nul verschillende amplitude in (0,T); signaal twee is een rechthoekige puls met amplitude 1 in het interval (0,2T)). 
+	\item Wat is de relatie tussen deze twee functies?
+\end{itemize}
+
+\paragraph{Vraag 2 (2 punten)}
+Gegeven een ideale DAC + BDF filter voor een reëel BDF signaal in (2F,3F) en met $f_s = 2F$.
+\begin{itemize}
+	\item Is perfecte reconstructie mogelijk? Motiveer.
+	\item Indien we gebruik zouden maken van een gewone DAC aan dezelfde fs, is het dan nog mogelijk? Zo niet, zou je aanpassingen kunnen doen aan dit schema zodanig dat het toch mogelijk is aan deze samplefrequentie. Motiveer.
+\end{itemize}
+
+\paragraph{Vraag 3 (2 punten)}
+Gegeven een polen en nullen diagram van een IIR filter. Nullen in $z=\pm j$, $z=-1$ (dubbel), polen in $0.9\exp(\pm j\pi/3)$.
+\begin{itemize}
+	\item Bepaal de eerste 3 samples van het impulsantwoord. Tip: wiskundige elegantie wordt beloond.
+	\item Is dit filter causaal? (Motiveer) Indien niet, hoe zou je het polen en nullen diagram kunnen aanpassen om het filter toch causaal te maken, zonder het amplitudespectrum aan te passen?
+\end{itemize}
+
+\paragraph{Vraag 4 (3 punten)}
+\begin{itemize}
+	\item Beschrijf waarom en hoe OLA werkt. Bepaal het aantal bewerkingen nodig om de convolutie van $x(n)$ (reëel) en $h(n)$ (eveneens reëel) te bepalen aan de hand van deze methode.
+	\item Hoe kan je met behulp van FFT dit sneller maken (geen formules). Maak hierbij nog geen gebruik van de eigenschap dat het om een reëel signaal gaat.
+	\item Hoe kan je bovenstaande methode nog verder versnellen door nu wel te veronderstellen dat het signaal $x(n)$ reëel is.
+\end{itemize}
+
+\paragraph{Vraag 5 (3 punten)}
+\begin{itemize}
+	\item Bespreek waarom men een venster van 'voldoende lengte' moet nemen bij het inspecteren van een vermogenspectrum, en hangt deze 'voldoende lengte' af van het gekozen venster?
+	\item Welke fouten kan je niet corrigeren door de vorm van het venster aan te passen?
+	\item Hoe kan je die fouten toch oplossen?
+\end{itemize}
+
+\section{Oefeningen}
+Beschrijf hoe je volgend probleem zou oplossen (geef stelsels etc. maar los ze niet op): Gegeven een telefoniesysteem met ontvangen spraaksignaal $s(n)$, eigen spraak $u(n)$ en echo $e(n)$. De echo is het gevolg van een oneindig lang impulsantwoord in $(M_0,\infty)$ van een onbekend LTI systeem.
+\begin{enumerate}
+	\item Bespreek hoe je een filter met 32 coëfficiënten zou kunnen maken dat de echo zo goed mogelijk probeert te onderdrukken door gebruik te maken vaan een opname van lengte $I$ (voldoende lang). Je mag aannemen dat $u(n)$ en $s(n)$ niet gecorreleerd zijn en dat de signalen voldoende energie bezitten binnen dat interval. \textit{Tip: denk aan de laatste theorieles.} (3 punten)
+	\item Ontwerp een derde orde (reëel) FIR filter dat aan volgende specificaties voldoet (4 punten):
+	\begin{itemize}
+		\item Fasekarakteristiek constant gelijk aan $\pi/2$.
+		\item Bij lage frequenties wordt de amplitudekarakteristiek gegeven door $2\pi fTs$.
+		\item Amplitudekarakteristiek maximaal voor $fTs \geq 1/4$.
+		\item Een zo'n groot mogelijke attenuatie voor $fTs \geq 1/3$.
+	\end{itemize}
+\end{enumerate}
+
+\end{document}
